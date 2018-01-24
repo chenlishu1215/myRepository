@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<!-- 配置 -->
+	<session-factory>
+		<!-- 必配 方言  驱动   数据库路径  数据库用户名，密码 -->
+		<!--
+			#hibernate.dialect org.hibernate.dialect.MySQLDialect
+			#hibernate.connection.driver_class com.mysql.jdbc.Driver
+			#hibernate.connection.url jdbc:mysql:///test
+			#hibernate.connection.username gavin
+			#hibernate.connection.password -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql:///store25</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">123</property>
+		<!-- 选配 -->
+		<!-- 是否显示sql语句 默认不显示 -->
+		<property name="hibernate.show_sql">true</property>
+		<!-- 是否格式化sql语句 默认没有格式化 -->
+		<property name="hibernate.format_sql">true</property>
+		<!-- 表生成的方式 -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<!-- 配置C3P0连接池 -->
+		
+		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+		
+		<!-- 配置session绑定本地线程 -->
+		 <property name="hibernate.current_session_context_class">thread</property> 
+		
+		<!-- 加入映射文件 -->
+		<mapping resource="com/itheima/bean/Category.hbm.xml"></mapping>
+		<mapping resource="com/itheima/bean/Product.hbm.xml"></mapping>
+		<mapping resource="com/itheima/bean/Order.hbm.xml"></mapping>
+		<mapping resource="com/itheima/bean/OrderItem.hbm.xml"></mapping>
+		<mapping resource="com/itheima/bean/User.hbm.xml"></mapping>
+		<mapping resource="com/itheima/bean/Comment.hbm.xml"></mapping>
+		<mapping resource="com/itheima/bean/Record.hbm.xml"></mapping>
+		
+		
+		
+		
+	</session-factory>
+</hibernate-configuration>

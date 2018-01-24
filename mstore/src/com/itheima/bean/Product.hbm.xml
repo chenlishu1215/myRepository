@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.itheima.bean.Product" table="product">
+		<id name="pid" column="pid">
+			<generator class="assigned"></generator>
+		</id>
+		<property name="pname" column="pname"></property>
+		<property name="market_price" column="market_price"></property>
+		<property name="shop_price" column="shop_price"></property>
+		<property name="pimage" column="pimage"></property>
+		<property name="pdate" column="pdate"></property>
+		<property name="pdesc" column="pdesc"></property>
+		<property name="is_hot" column="is_hot"></property>
+		<property name="pflag" column="pflag"></property>
+		
+		
+		
+		<many-to-one name="category" class="com.itheima.bean.Category" column="cid"></many-to-one>
+		
+		<set name="orderItems" >
+		
+			<key column="pid"></key>
+			<one-to-many class="com.itheima.bean.OrderItem"></one-to-many>
+		</set>
+		
+
+	</class>
+</hibernate-mapping>

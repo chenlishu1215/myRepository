@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.itheima.bean.User" table="user">
+		<id name="uid" column="uid">
+			<generator class="uuid"></generator>
+		</id>
+		<property name="username" column="username"></property>
+		<property name="password" column="password"></property>
+		<property name="name" column="name"></property>
+		<property name="email" column="email"></property>
+		<property name="telephone" column="telephone"></property>
+		<property name="birthday" column="birthday"></property>
+		<property name="sex" column="sex"></property>
+		<property name="state" column="state"></property>
+		<property name="code" column="code"></property>
+		
+		
+		<set name="orders">
+			<key column="uid"></key>
+			<one-to-many class="com.itheima.bean.Order"></one-to-many>
+		</set>
+		
+
+	</class>
+</hibernate-mapping>

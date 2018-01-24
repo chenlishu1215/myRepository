@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.itheima.bean.Order" table="orders">
+		<id name="oid" column="oid">
+			<generator class="uuid"></generator>
+		</id>
+		<property name="ordertime" column="ordertime"></property>
+		<property name="total" column="total"></property>
+		<property name="state" column="state"></property>
+		<property name="address" column="address"></property>
+		<property name="name" column="name"></property>
+		<property name="telephone" column="telephone"></property>
+		
+		
+		<many-to-one name="user" class="com.itheima.bean.User" column="uid"></many-to-one>
+		
+		<set name="orderItems">
+		
+			<key column="oid"></key>
+			<one-to-many class="com.itheima.bean.OrderItem"></one-to-many>
+		</set>
+		
+
+	</class>
+</hibernate-mapping>

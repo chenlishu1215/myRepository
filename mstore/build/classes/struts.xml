@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="test" extends="struts-default" namespace="/">
+		<action name="test_*" class="com.itheima.test.ActionTest" method="{1}">
+			<!-- <result name="success"></result> -->
+		</action>	
+			
+	</package>
+	<package name="category" extends="struts-default" namespace="/">
+		<action name="category_*" class="com.itheima.web.servlet.CategoryServlet" method="{1}">
+			<!-- <result name="success"></result> -->
+
+		</action>	
+			
+	</package>
+	<package name="product" extends="struts-default" namespace="/">
+		<action name="product_*" class="com.itheima.web.servlet.ProductServlet" method="{1}">
+			<result name="indexProductSuccess">/jsp/index.jsp</result>
+			<result name="findByPageSuccess">/jsp/product_list.jsp</result>
+			<result name="showDetailSuccess">/jsp/product_info.jsp</result>
+			
+
+		</action>	
+			
+	</package>
+	<package name="cart" extends="struts-default" namespace="/">
+		<action name="cart_*" class="com.itheima.web.servlet.CartServlet" method="{1}">
+			<result name="success" type="redirect">/jsp/cart.jsp</result>
+			
+
+		</action>	
+			
+	</package>
+	<package name="order" extends="struts-default" namespace="/">
+		<action name="order_*" class="com.itheima.web.servlet.OrderServlet" method="{1}">
+			<result name="success" >/jsp/order_info.jsp</result>
+			<result name="findByPageSuccess" >/jsp/order_list.jsp</result>
+			<result name="failed" >/jsp/login.jsp</result>
+			<result name="msg" >/jsp/msg.jsp</result>
+			
+		</action>	
+			
+	</package>
+	<package name="comment" extends="json-default" namespace="/">
+		<action name="comment_*" class="com.itheima.web.servlet.CommentServlet" method="{1}">
+			<result name="saveContentSuccess" type="redirect">product_showDetail?pid=${pid}</result>
+			<result name="tojson" type="json">
+				<param name="root">comment</param>
+			</result>
+
+		</action>	
+			
+	</package>
+	<package name="user" extends="struts-default" namespace="/">
+		<action name="user_*" class="com.itheima.web.servlet.UserServlet" method="{1}">
+			
+			<result name="registerFailed" >/jsp/register.jsp</result>
+			<result name="registerSuccess" type="redirect">/jsp/success.jsp</result>
+			<result name="loginSuccess" type="redirect">/jsp/index.jsp</result>
+			<result name="loginFailed">/jsp/login.jsp</result>
+
+		</action>	
+			
+	</package>
+	<package name="validate" extends="struts-default" namespace="/">
+		<action name="validate_*" class="com.itheima.web.servlet.ValidateServlet" method="{1}"></action>	
+			
+	</package>
+	<package name="adminCategoryServlet" extends="struts-default" namespace="/">
+		<action name="adminCategoryServlet_*" class="com.itheima.web.servlet.AdminCategoryServlet" method="{1}">
+			<result name="adminUISuccess" type="redirect">/admin/category/add.jsp</result>
+			<result name="findAllSuccess">/admin/category/list.jsp</result>
+			<result name="categoryBackShowSuccess">/admin/category/edit.jsp</result>
+			<result name="responseFindAllSuccess" type="redirectAction">adminCategoryServlet_findAll</result>
+		</action>	
+			
+	</package>
+	<package name="adminOrderServlet" extends="json-default" namespace="/">
+		<action name="adminOrderServlet_*" class="com.itheima.web.servlet.AdminOrderServlet" method="{1}">
+			<result name="findOrderByPageSuccess">/admin/order/list.jsp</result>
+			<result name="showDetailSuccess" type="json">
+				<param name="root">order</param>
+			</result>
+			
+		</action>	
+			
+	</package>
+	<package name="adminProductServlet" extends="struts-default" namespace="/">
+		<action name="adminProductServlet_*" class="com.itheima.web.servlet.AdminProductServlet" method="{1}">
+			<result name="findAllProductSuccess">/admin/product/list.jsp</result>
+			<result name="adminUISuccess">/admin/product/add.jsp</result>
+			<result name="dispatcherFindAllProductSuccess" type="redirectAction">adminProductServlet_findAllProduct?curPage=1</result>
+			<result name="productBackShowSuccess" >/admin/product/edit.jsp</result>
+			
+			
+		</action>	
+			
+	</package>
+	
+</struts>
