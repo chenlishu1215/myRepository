@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<font>恭喜您离 注册成功只差一步了，打开您的邮箱 激活帐号</font>
+	<font>恭喜您离 注册成功只差一步了，打开您的邮箱 激活帐号!!!!!!</font>
 </body>
 </html>
