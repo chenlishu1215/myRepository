@@ -2,7 +2,7 @@
     <wb-module deploy-name="supermarket">
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <wb-resource deploy-path="/" source-path="/WebContent"/>
-        <property name="java-output-path" value="/supermarket/build/classes"/>
         <property name="context-root" value="mstore"/>
+        <property name="java-output-path" value="/mstore/build/classes"/>
     </wb-module>
 </project-modules>
